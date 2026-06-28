@@ -1,0 +1,13 @@
+.hero_title{
+    background: linear-gradient(100deg, #ffffff 30%, #f9ce4f 65%, #fde68a 100%);
+    background-clip: border-box;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+
+}

@@ -1,5 +1,0 @@
-@import "tailwindcss";
-
-/* Esto reemplaza el content de tailwind.config.js */
-@source "./src/**/*.{js,ts,jsx,tsx}";
-@source "./index.html";

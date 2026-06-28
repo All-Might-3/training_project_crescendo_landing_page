@@ -1,0 +1,29 @@
+@import './sections/hero.css';
+@import "tailwindcss";
+@source "./src/**/*.{js,ts,jsx,tsx}";
+@source "./index.html";
+
+/* Variables globales */
+:root {
+  --primary: #F5B82A;
+  --primary-dark: #d9a21b;
+  --primary-light: #fcd96a;
+  --secondary: #101d3b;
+  --dark: #0f172a;
+  --font-secondary: 'Inter', sans-serif;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-gold-lg: 0 16px 48px rgba(245, 184, 42, 0.45);
+}
+
+.html{
+  font-size: 1.2rem;
+  margin-bottom: 44px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-weight: 400;
+  font-family: var(--font-primary)
+}
