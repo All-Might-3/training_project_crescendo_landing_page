@@ -9,11 +9,28 @@
   --primary-dark: #d9a21b;
   --primary-light: #fcd96a;
   --secondary: #101d3b;
+  --secondary-mid: #1a2f5e;
+  --accent: #1B8A8A;
+  --light: #F4F6FA;
+  --light-2: #EEF1F8;
   --dark: #0f172a;
+  --gray: #64748b;
+  --gray-light: #94a3b8;
+  --border: #e2e8f0;
+  --success: #10B981;
+  --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Inter', sans-serif;
+  --radius-sm: 8px;
   --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
   --radius-pill: 999px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.08), 0 1px 4px rgba(15,23,42,0.04);
+  --shadow-hover: 0 16px 40px rgba(15, 23, 42, 0.14), 0 4px 12px rgba(15,23,42,0.06);
+  --shadow-gold: 0 8px 32px rgba(245, 184, 42, 0.35);
   --shadow-gold-lg: 0 16px 48px rgba(245, 184, 42, 0.45);
 }
 

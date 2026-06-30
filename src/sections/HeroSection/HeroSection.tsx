@@ -1,12 +1,12 @@
 // sections/HeroSection/HeroSection.tsx
 
 import heroVideo from '../../assets/videos/hero-background..mp4';
-import { HERO } from '../../utils/constants';
+import { HERO } from '../../utils/hero_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden ">
       {/* Video de fondo */}
       <video
         autoPlay
@@ -23,7 +23,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Contenido */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 z-10">
         {/* Badge header */}
         <div className="max-w-xl mx-auto text-center mb-4">
           <div className="inline-block px-6 py-1.5 text-white text-center text-sm sm:text-base font-medium border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm">
@@ -62,10 +62,10 @@ export const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-5 sm:gap-8  ">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-4 w-full  justify-center gap-4 max-w-4xl mx-auto  ">
             {HERO.stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="  flex items-center px-6 py-1.5 text-white text-base sm:text-lg font-medium border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm " >
+              <div key={index} className="text-center ">
+                <div className="  flex items-center justify-center py-1.5 text-white text-[13px] sm:text-[13px] border border-white/15 rounded-2xl bg-white/5 backdrop-blur-sm "  >
                   <FontAwesomeIcon icon={stat.icon} className="text-amber-400 mr-2" />
                   {stat.text}
                 </div>
@@ -95,8 +95,8 @@ export const HeroSection = () => {
           </div>
 
           {/* MIDDLE BOXES */}
-          <div className="mt-8">
-  <div className="grid grid-cols-[20%_20%_20%_30%] justify-between max-w-4xl mx-auto h-[310px]">
+          <div className="mt-8 ">
+  <div className="grid grid-cols-[20%_20%_20%_30%] justify-between max-w-4xl mx-auto h-[310px] ">
     {HERO.middle_boxes.map((box, index) => {
       if (box.type === 'icon') {
         // Asignamos la variante según el índice
@@ -107,7 +107,7 @@ export const HeroSection = () => {
         return (
           <div
             key={index}
-            className="stat bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl flex flex-col items-center  p-4 h-full"
+            className="stat bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl flex flex-col items-center  p-4 h-full middle-boxes-container"
           >
             {/* Contenedor del icono con estilos personalizados */}
             <div className={`midle-icon-base ${variantClass}`}>
@@ -116,7 +116,7 @@ export const HeroSection = () => {
                 className="scroll-animate-delay-3 scroll-animate"
               />
             </div>
-            <span className="text-white text-sm font-medium text-center">{box.text}</span>
+            <span className="text-white text-sm font-medium text-center ">{box.text}</span>
           </div>
         );
       }
@@ -125,7 +125,7 @@ export const HeroSection = () => {
       return (
         <div
           key={index}
-          className="hero-value-card bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl flex flex-col p-4 h-full justify-between"
+          className="hero-value-card bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl flex flex-col p-4 h-full justify-between middle-boxes-container"
         >
           <strong className="text-white text-base font-semibold text-center mb-2">
             {box.title}
@@ -169,35 +169,35 @@ export const HeroSection = () => {
 </div>
 
           {/* BOTTOM BOXES */}
-          <div className="mt-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {HERO.bottom_boxes.map((box) => (
-                <div
-                  key={box.title}
-                  className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-3 py-2 h-[80px] transition-all duration-300 ease-out hover:bg-white/20 hover:scale-105"
-                >
-                  {/* Imagen/Icono a la izquierda */}
-                  <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center">
-                    <img
-                      src={box.image}
-                      alt={box.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+<div className="mt-8">
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+    {HERO.bottom_boxes.map((box) => (
+      <div
+        key={box.title}
+        className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-3 py-2 h-[80px] transition-all duration-300 ease-out hover:bg-white/20 hover:scale-105"
+      >
+        
+        <div className="flex-shrink-0 w-[30%] h-full rounded-2xl overflow-hidden bg-white/5">
+          <img
+            src={box.image}
+            alt={box.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-                  {/* Texto a la derecha */}
-                  <div className="flex flex-col justify-center flex-1 min-w-0">
-                    <strong className="text-white text-sm font-semibold truncate">
-                      {box.title}
-                    </strong>
-                    <span className="text-amber-400 text-xs truncate">
-                      {box.subtitle}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        
+        <div className="flex flex-col justify-center flex-1 min-w-0">
+          <strong className="text-white text-sm font-semibold truncate">
+            {box.title}
+          </strong>
+          <span className="text-amber-400 text-xs truncate">
+            {box.subtitle}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
         </div>
       </div>

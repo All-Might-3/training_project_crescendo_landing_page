@@ -5,9 +5,9 @@ import {
   faComment,
   faBriefcase,
   faBan,
-  faBullseye,
-  faRocket,
   faChartLine,
+  faRoute,     
+  faComments,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const HERO = {
@@ -48,9 +48,9 @@ export const HERO = {
     },
   ],
   middle_boxes: [
-  { type: 'icon', icon: faBullseye,  text: 'Strategic roadmap aligned to your monthly revenue target' },
-  { type: 'icon', icon: faRocket,   text: 'Weekly optimization focused on lower cost per qualified lead' },
-  { type: 'icon', icon: faChartLine,   text: 'Fast response team that feels like your in-house marketing department' },
+  { type: 'icon', icon: faRoute,   text: 'Strategic roadmap aligned to your monthly revenue target' },
+  { type: 'icon', icon: faChartLine,   text: 'Weekly optimization focused on lower cost per qualified lead' },
+  { type: 'icon', icon: faComments,   text: 'Fast response team that feels like your in-house marketing department' },
   {
     type: 'text',
     title: 'Your 30-Minute Free Audit Includes',
