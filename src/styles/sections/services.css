@@ -45,14 +45,12 @@
 .icon-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center; /* <-- izquierda */
-  width: 3.5rem;  /* 14 (w-14) */
-  height: 3.5rem; /* 14 (h-14) */
-  border-radius: 9999px;
-  background: linear-gradient(to bottom right, rgba(245, 184, 42, 0.2), rgba(245, 184, 42, 0.1));
-  border: 1px solid rgba(245, 184, 42, 0.2);
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
   margin-bottom: 1rem;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ 
 }
 
 
@@ -109,6 +107,71 @@
 
 .scroll-animate-delay-4 {
   animation-delay: 0.2s !important;
+}
+
+/* ===== Subtítulo del servicio ===== */
+.service-subtitle {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 0.5rem 0 1rem 0;
+  text-align: center;
+}
+
+/* ===== Lista de características ===== */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start; /* centra los items en la tarjeta */
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--gray);
+  text-align: left; /* el texto alineado a la izquierda, pero el contenedor centrado */
+}
+
+.feature-check {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #22c55e; /* verde Tailwind-500 */
+}
+
+/* ===== Enlace con flecha ===== */
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: auto; /* para empujarlo al final de la tarjeta */
+  align-self: center; /* centra el enlace en la tarjeta */
+}
+
+.service-link:hover {
+  color: var(--dark);
+}
+
+.service-arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-link:hover .service-arrow {
+  transform: translateX(6px);
+  opacity: 0.15; /* casi desaparece */
 }
 
 @keyframes fadeInUp {
