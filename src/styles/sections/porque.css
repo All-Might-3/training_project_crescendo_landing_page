@@ -1,0 +1,7 @@
+/* src/styles/sections/porque.css */
+.porque-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.porque-card:hover {
+  transform: translateY(-8px);
+}
