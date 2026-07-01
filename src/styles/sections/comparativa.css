@@ -1,0 +1,194 @@
+/* src/styles/sections/comparativa.css */
+
+/* === Sección Comparativa === */
+.comparativa-section {
+  background-color: var(--light);
+}
+
+/* Encabezado de la sección */
+.comparativa-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.comparativa-header p {
+  font-size: 1.15rem;
+  color: var(--gray);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Bloque de compromiso */
+.commitment-box {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--primary);
+  transition: var(--transition);
+}
+
+.commitment-box h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 0.75rem;
+}
+
+.commitment-box > p {
+  color: var(--gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.commitment-pillars {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.commitment-pillars li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.commitment-pillars .pillar-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+/* Tabla comparativa */
+.comparison-table-wrapper {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.comparison-simple {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.comparison-simple thead {
+  background: var(--secondary);
+  color: white;
+}
+
+.comparison-simple thead th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.comparison-simple tbody td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+.comparison-simple tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-simple tbody tr {
+  transition: var(--transition);
+}
+
+.comparison-simple tbody tr:hover {
+  background-color: var(--light-2);
+}
+
+.comparison-simple tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.comparison-simple tbody tr:nth-child(even):hover {
+  background-color: var(--light-2);
+}
+
+.comparison-simple tbody td:first-child {
+  font-weight: 600;
+  color: var(--secondary);
+  width: 38%;
+}
+
+.comparison-simple tbody td:last-child {
+  color: var(--gray);
+  width: 62%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comparativa-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .comparativa-header p {
+    font-size: 1rem;
+  }
+
+  .commitment-box {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .commitment-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .comparison-simple thead th,
+  .comparison-simple tbody td {
+    padding: 1rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .comparison-simple tbody td:first-child {
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    padding-bottom: 0.25rem;
+  }
+
+  .comparison-simple tbody td:last-child {
+    width: 100%;
+    display: block;
+    padding-top: 0.25rem;
+  }
+
+  .comparison-simple tbody tr {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .comparison-simple tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-simple thead {
+    display: none;
+  }
+}

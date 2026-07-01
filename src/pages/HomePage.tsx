@@ -2,8 +2,9 @@
 import Header from '../components/layout/Header';
 import { HeroSection } from '../sections/HeroSection';
 import { ServicesSection } from '../sections/ServicesSection';
-import { PorQueSection } from '../sections/Por-que-Section'; // 👈 importar
-
+import { PorQueSection } from '../sections/Por-que-Section'; 
+import { ClientesLogosSection } from '../sections/ClientesLogosSection';
+import { ComparativaSection } from '../sections/ComparativaSection';
 export const HomePage = () => {
   return (
     <>
@@ -15,10 +16,15 @@ export const HomePage = () => {
         <section id="servicios">
           <ServicesSection />
         </section>
-        <section id="por-que">   {/* 👈 ID para anclaje si lo necesitas */}
+        <section id="por-que">   
           <PorQueSection />
         </section>
-        {/* Más secciones vendrán después */}
+        <section id="clientes">
+        <ClientesLogosSection />
+        </section>
+        <section id="comparativa">   {/* <-- nuevo */}
+          <ComparativaSection />
+        </section>
       </main>
     </>
   );

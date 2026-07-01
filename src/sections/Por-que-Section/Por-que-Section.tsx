@@ -18,9 +18,9 @@ export const PorQueSection = () => {
               {POR_QUE.items.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-start gap-4 bg-[var(--light-2)] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                  className="group flex items-start gap-4 bg-[var(--light-2)] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary-dark)] text-2xl">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-black flex items-center justify-center text-white text-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
                     <FontAwesomeIcon icon={item.icon} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -37,7 +37,7 @@ export const PorQueSection = () => {
           </div>
 
           {/* Columna derecha: imagen */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="flex-1 flex justify-center lg:justify-end h-600px">
             <img
               src={POR_QUE.image}
               alt="Crescendo Digital Marketing team working on digital marketing strategies"

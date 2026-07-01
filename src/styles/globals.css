@@ -1,5 +1,6 @@
 @import './sections/hero.css';
 @import './sections/services.css';
+@import './sections/comparativa.css'; 
 @import "tailwindcss";
 @source "./src/**/*.{js,ts,jsx,tsx}";
 @source "./index.html";

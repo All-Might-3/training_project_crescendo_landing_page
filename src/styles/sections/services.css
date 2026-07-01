@@ -69,8 +69,7 @@
 .servicio-card:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15); /* Sombra gris */
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  
 }
 .servicio-card:hover .icon-wrapper {
   transform: translateY(-6px) rotate(6deg);

@@ -1,0 +1,8 @@
+/* src/styles/sections/clientes.css */
+.logo-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}

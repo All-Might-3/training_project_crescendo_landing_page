@@ -13,7 +13,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Grid de servicios */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto bg-[var(--light-2)]">
           {SERVICES.services.map((service) => (
             <div
               key={service.id}
