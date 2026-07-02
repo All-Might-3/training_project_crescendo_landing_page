@@ -1,0 +1,64 @@
+/* src/styles/services/proceso.css*/
+/* Mascota */
+.proceso-mascot-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.proceso-mascot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #fef7da, #f5b82a);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 24px rgba(16, 29, 59, 0.22), 0 6px 20px rgba(245, 184, 42, 0.35);
+  z-index: 1;
+  transform: translate(var(--p1-x), var(--p1-y)) scale(1);
+  will-change: transform;
+  animation: mascotHop 6s ease-in-out infinite;
+}
+
+.proceso-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Keyframes con variables CSS */
+@keyframes mascotHop {
+  0% {
+    transform: translate(var(--p1-x), var(--p1-y)) scale(1);
+  }
+  18% {
+    transform: translate(var(--a12-x), var(--a12-y)) scale(1.08);
+  }
+  36% {
+    transform: translate(var(--p2-x), var(--p2-y)) scale(0.96);
+  }
+  56% {
+    transform: translate(var(--a23-x), var(--a23-y)) scale(1.05);
+  }
+  76% {
+    transform: translate(var(--p3-x), var(--p3-y)) scale(0.98);
+  }
+  88% {
+    transform: translate(var(--p3-x), calc(var(--p3-y) - 10px)) scale(1.02);
+  }
+  100% {
+    transform: translate(var(--p3-x), var(--p3-y)) scale(1);
+  }
+}
+
+/* Si el usuario prefiere movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .proceso-mascot {
+    animation: none;
+    transform: translate(var(--p3-x), var(--p3-y)) !important;
+  }
+}

@@ -7,6 +7,10 @@ export const ServicesSection = () => {
   return (
     <section className="relative py-20 bg-[var(--light-2)] overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
+
+        <div className="flex justify-center mb-8">
+          <div className="w-12 h-1 bg-[var(--primary)] rounded-full" />
+        </div>
         {/* Encabezado global */}
         <div className="max-w-6xl mx-auto text-center mb-12">
           <h2 className="font_title">{SERVICES.title}</h2>

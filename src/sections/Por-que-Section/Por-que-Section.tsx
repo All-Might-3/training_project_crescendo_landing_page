@@ -8,7 +8,7 @@ export const PorQueSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
           {/* Columna izquierda: texto */}
           <div className="flex-1">
-            <h2 className="font_title text-3xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">
+            <h2 className="font_title text-4xl md:text-5sxl font-bold text-[var(--dark)] leading-tight">
               {POR_QUE.title}
             </h2>
             <p className="text-[var(--gray)] text-lg mt-4 leading-relaxed">

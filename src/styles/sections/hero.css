@@ -82,10 +82,7 @@ flex-direction: column;
     animation-delay: 0s;
 }
 
-.middle-boxes-container {
-  border-top: 2px solid;
-  border-image: linear-gradient(to right, transparent, #fbbf24, #f59e0b, #fbbf24, transparent) 1;
-}
+
 
 /* Base para todos los iconos */
 .midle-icon-base {

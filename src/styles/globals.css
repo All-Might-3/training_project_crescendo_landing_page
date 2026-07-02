@@ -1,6 +1,7 @@
 @import './sections/hero.css';
 @import './sections/services.css';
 @import './sections/comparativa.css'; 
+@import './sections/proceso.css';
 @import "tailwindcss";
 @source "./src/**/*.{js,ts,jsx,tsx}";
 @source "./index.html";
@@ -45,4 +46,48 @@
   line-height: 1.7;
   font-weight: 400;
   font-family: var(--font-primary)
+}
+/* src/styles/globals.css (al final) */
+
+.border-top-gradient {
+  position: relative;
+}
+
+.border-top-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px; /* grosor del borde, ajústalo a ojo */
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  border-top-left-radius: inherit;  /* hereda el radio de la caja */
+  border-top-right-radius: inherit;
+  pointer-events: none; /* para que no interfiera con clics */
+}
+
+
+/* src/styles/globals.css */
+@keyframes mascotaViaje {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(120px, -40px) scale(1.1) rotate(8deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(240px, -20px) scale(0.9) rotate(-4deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(calc(100% - 120px), 150px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.mascota-viaje {
+  animation: mascotaViaje 8s ease-out forwards;
+  animation-iteration-count: 1; /* opcional, por defecto es 1 */
 }

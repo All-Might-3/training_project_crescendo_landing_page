@@ -1,19 +1,28 @@
-// components/layout/Header.tsx
-
+// src/components/layout/Header.tsx
 import { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 // Definimos las traducciones
 const translations = {
   es: {
     inicio: 'Inicio',
     servicios: 'Servicios',
-    casos: 'Casos de éxito',
+    casos: 'Casos de Éxito',
     testimonios: 'Testimonios',
     blog: 'Blog',
     nosotros: 'Nosotros',
     contacto: 'Contacto',
     agenda: 'Agenda una llamada',
+    // submenú servicios
+    localSeo: 'SEO Local',
+    ads: 'Google Ads y Meta Ads',
+    webDesign: 'Diseño Web',
+    aiChat: 'Chat IA 24/7',
+    social: 'Social Media',
+    reputation: 'Reputación Online',
   },
   en: {
     inicio: 'Home',
@@ -24,13 +33,28 @@ const translations = {
     nosotros: 'About Us',
     contacto: 'Contact',
     agenda: 'Book a call',
+    localSeo: 'Local SEO',
+    ads: 'Google Ads & Meta Ads',
+    webDesign: 'Web Design',
+    aiChat: 'AI Chat 24/7',
+    social: 'Social Media',
+    reputation: 'Online Reputation',
   },
 };
+
+const serviceItems = [
+  { key: 'localSeo', href: '/seo-local' },
+  { key: 'ads', href: '/google-ads' },
+  { key: 'webDesign', href: '/web-design' },
+  { key: 'aiChat', href: '/ia-chat-24-7' },
+  { key: 'social', href: '/social-media' },
+  { key: 'reputation', href: '/reputacion-online' },
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState<'es' | 'en'>('es'); // estado del idioma
+  const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,52 +64,189 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
- 
   const t = translations[language];
-
 
   const navItems = [
     { key: 'inicio', to: 'hero', type: 'scroll' },
-    { key: 'servicios', to: 'services', type: 'scroll' },
-    { key: 'casos', href: 'http://tudominio.com/casos', type: 'link' }, // URL fija
+    // Servicios con dropdown lo manejamos aparte
+    { key: 'casos', href: '/casos-de-exito', type: 'link' },
     { key: 'testimonios', to: 'testimonials', type: 'scroll' },
     { key: 'blog', to: 'blog', type: 'scroll' },
-    { key: 'nosotros', to: 'about-us', type: 'scroll' },
+    { key: 'nosotros', href: '/nosotros', type: 'link' },
   ];
 
-  // Función para cambiar idioma
   const changeLanguage = (lang: 'es' | 'en') => {
     setLanguage(lang);
-    // Opcional: cerrar menú móvil al cambiar idioma
     setIsOpen(false);
   };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-sm shadow-md' : 'bg-white/80 backdrop-blur-sm'
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-[0_8px_24px_rgba(0,0,0,0.08)]'
+          : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center gap-[10px] w-[100%] py-3 px-[26px] text-[0.92rem] justify-around font-bold uppercase tracking-[0.04em] rounded-full">
+        <div className="flex justify-around items-center py-3">
           {/* Logo */}
-          <div className="flex-shrink-0 ">
-            <a href="/" className="text-2xl font-bold text-slate-900">
-              Crescendo
-            </a>
-          </div>
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src="/src/assets/images/logodorado.png" 
+              alt="Crescendo Digital Marketing"
+              className="h-11 w-auto object-contain"
+            />
+          </a>
 
-          {/* Navegación desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Menú desktop */}
+          <nav className="hidden lg:flex items-center space-x-8 ">
+            <ScrollLink
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="text-[var(--dark)] hover:text-amber-400 cursor-pointer text-sm font-medium transition-colors"
+              activeClass="text-amber-400"
+            >
+              {t.inicio}
+            </ScrollLink>
+
+            {/* Dropdown Servicios */}
+            <div className="relative group">
+              <button
+                className="flex items-center gap-1 text-[var(--dark)] hover:text-amber-400 text-sm font-medium transition-colors"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {t.servicios}
+                <FontAwesomeIcon icon={faChevronDown} className="text-xs ml-1 transition-transform group-hover:rotate-180" />
+              </button>
+              <div className="absolute left-0 top-full pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
+                <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                  {serviceItems.map((item) => (
+                    <a
+                      key={item.key}
+                      href={item.href}
+                      className="block px-4 py-2.5 text-sm text-[var(--dark)] hover:bg-amber-50 hover:text-amber-500 transition-colors"
+                    >
+                      {t[item.key as keyof typeof t]}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {navItems.map((item) => {
               if (item.type === 'link') {
                 return (
                   <a
                     key={item.key}
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-900 hover:text-amber-400 cursor-pointer transition-colors text-sm font-medium"
+                    className="text-[var(--dark)] hover:text-amber-400 text-sm font-medium transition-colors"
+                  >
+                    {t[item.key as keyof typeof t]}
+                  </a>
+                );
+              }
+              
+            })}
+
+            {/* Botón Contacto (estilo nav-cta) */}
+            <a
+  href="https://wa.me/17867556238"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] shadow-[0_14px_28px_rgba(245,184,42,0.32)] border border-[var(--secondary)]/10 hover:shadow-lg transition-all duration-300 hover:scale-105 group"
+>
+  {t.contacto}
+  <FontAwesomeIcon
+    icon={faArrowRight}
+    className="text-xs transition-transform duration-300 group-hover:translate-x-1 "
+  />
+</a>
+
+            {/* Selector de idioma */}
+            <div className="flex items-center gap-1 ml-2">
+              <button
+                onClick={() => changeLanguage('es')}
+                className={`px-2.5 py-1 text-xs font-bold rounded-sm border transition-colors ${
+                  language === 'es'
+                    ? 'bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] border-[var(--secondary)]/20 shadow-md'
+                    : 'bg-transparent border-slate-200 text-slate-600 hover:border-amber-300 hover:text-amber-500'
+                }`}
+              >
+                ES
+              </button>
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`px-2.5 py-1 text-xs font-bold rounded-sm border transition-colors ${
+                  language === 'en'
+                    ? 'bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] border-[var(--secondary)]/20 shadow-md'
+                    : 'bg-transparent border-slate-200 text-slate-600 hover:border-amber-300 hover:text-amber-500'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          </nav>
+
+          {/* Botón hamburguesa */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden flex flex-col gap-1.5 p-1 rounded-lg text-[var(--dark)] hover:text-amber-400 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          </button>
+        </div>
+
+        {/* Menú móvil */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="py-4 border-t border-slate-100 space-y-3">
+            <ScrollLink
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              onClick={() => setIsOpen(false)}
+              className="block text-[var(--dark)] hover:text-amber-400 text-base font-medium py-2"
+              activeClass="text-amber-400"
+            >
+              {t.inicio}
+            </ScrollLink>
+
+            {/* Servicios en móvil (sin dropdown, solo enlaces) */}
+            <div className="pl-4 space-y-2 border-l-2 border-amber-200">
+              <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider">{t.servicios}</p>
+              {serviceItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-[var(--dark)] hover:text-amber-400 text-sm py-1.5"
+                >
+                  {t[item.key as keyof typeof t]}
+                </a>
+              ))}
+            </div>
+
+            {navItems.map((item) => {
+              if (item.type === 'link') {
+                return (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-[var(--dark)] hover:text-amber-400 text-base font-medium py-2"
                   >
                     {t[item.key as keyof typeof t]}
                   </a>
@@ -99,7 +260,8 @@ const Header = () => {
                   smooth={true}
                   offset={-80}
                   duration={500}
-                  className="text-slate-900 hover:text-amber-400 cursor-pointer transition-colors text-sm font-medium"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-[var(--dark)] hover:text-amber-400 text-base font-medium py-2"
                   activeClass="text-amber-400"
                 >
                   {t[item.key as keyof typeof t]}
@@ -107,144 +269,38 @@ const Header = () => {
               );
             })}
 
-            {/* Botón Contacto (ahora más grande) */}
             <a
-              href="#contact"
-              className="inline-block bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-6 py-2.5 rounded-full text-base transition duration-300 hover:scale-105"
+              href="https://wa.me/17867556238"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center py-3 text-sm font-bold uppercase tracking-wider rounded-full bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] shadow-md"
             >
               {t.contacto}
             </a>
 
-            {/* Botones de idioma (cuadrados) */}
-            <div className="flex items-center space-x-1 ml-2">
+            <div className="flex justify-center gap-3 pt-2">
               <button
                 onClick={() => changeLanguage('es')}
-                className={`w-8 h-8 text-sm font-bold rounded border transition-colors ${
+                className={`px-4 py-1.5 text-xs font-bold rounded border transition-colors ${
                   language === 'es'
-                    ? 'bg-amber-400 border-amber-400 text-slate-900'
-                    : 'bg-transparent border-slate-300 text-slate-600 hover:border-amber-400 hover:text-amber-400'
+                    ? 'bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] border-[var(--secondary)]/20'
+                    : 'bg-transparent border-slate-200 text-slate-600'
                 }`}
-                aria-label="Español"
               >
                 ES
               </button>
               <button
                 onClick={() => changeLanguage('en')}
-                className={`w-8 h-8 text-sm font-bold rounded border transition-colors ${
+                className={`px-4 py-1.5 text-xs font-bold rounded border transition-colors ${
                   language === 'en'
-                    ? 'bg-amber-400 border-amber-400 text-slate-900'
-                    : 'bg-transparent border-slate-300 text-slate-600 hover:border-amber-400 hover:text-amber-400'
+                    ? 'bg-gradient-to-r from-[#f9ce4f] to-[#f5b82a] text-[var(--secondary)] border-[var(--secondary)]/20'
+                    : 'bg-transparent border-slate-200 text-slate-600'
                 }`}
-                aria-label="English"
               >
                 EN
               </button>
             </div>
-          </nav>
-
-          {/* Botón menú móvil */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex items-center p-2 rounded-lg text-slate-900 hover:text-amber-400 focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Menú móvil desplegable */}
-      <div
-        className={`md:hidden bg-white transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-[500px] border-t border-slate-200' : 'max-h-0'
-        }`}
-      >
-        <div className="container mx-auto px-4 py-4 space-y-3">
-          {navItems.map((item) => {
-            if (item.type === 'link') {
-              return (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="block text-slate-900 hover:text-amber-400 text-base font-medium py-2"
-                >
-                  {t[item.key as keyof typeof t]}
-                </a>
-              );
-            }
-            return (
-              <ScrollLink
-                key={item.to}
-                to={item.to!}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                onClick={() => setIsOpen(false)}
-                className="block text-slate-900 hover:text-amber-400 text-base font-medium py-2"
-                activeClass="text-amber-400"
-              >
-                {t[item.key as keyof typeof t]}
-              </ScrollLink>
-            );
-          })}
-
-          {/* Botón de contacto en móvil */}
-          <a
-            href="#contact"
-            className="block w-full text-center bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-4 py-2.5 rounded-lg transition duration-300 text-base"
-            onClick={() => setIsOpen(false)}
-          >
-            {t.agenda}
-          </a>
-
-          {/* Botones de idioma en móvil (alineados a la derecha o centrados) */}
-          <div className="flex justify-center space-x-3 pt-2">
-            <button
-              onClick={() => changeLanguage('es')}
-              className={`w-9 h-9 text-sm font-bold rounded border transition-colors ${
-                language === 'es'
-                  ? 'bg-amber-400 border-amber-400 text-slate-900'
-                  : 'bg-transparent border-slate-300 text-slate-600 hover:border-amber-400 hover:text-amber-400'
-              }`}
-            >
-              ES
-            </button>
-            <button
-              onClick={() => changeLanguage('en')}
-              className={`w-9 h-9 text-sm font-bold rounded border transition-colors ${
-                language === 'en'
-                  ? 'bg-amber-400 border-amber-400 text-slate-900'
-                  : 'bg-transparent border-slate-300 text-slate-600 hover:border-amber-400 hover:text-amber-400'
-              }`}
-            >
-              EN
-            </button>
           </div>
         </div>
       </div>
