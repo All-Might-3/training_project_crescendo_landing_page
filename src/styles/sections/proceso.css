@@ -1,11 +1,4 @@
-/* src/styles/services/proceso.css*/
-/* Mascota */
-.proceso-mascot-orbit {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-}
+/* src/styles/services/proceso.css */
 
 .proceso-mascot {
   position: absolute;
@@ -20,7 +13,13 @@
   z-index: 1;
   transform: translate(var(--p1-x), var(--p1-y)) scale(1);
   will-change: transform;
-  animation: mascotHop 6s ease-in-out infinite;
+  animation: none;
+}
+
+.proceso-mascot.animate {
+  /* Linear para velocidad constante */
+  animation: mascotHop 4s linear 1 forwards;
+  /* Cambia 4s por el tiempo que prefieras (menos = más rápido) */
 }
 
 .proceso-mascot img {
@@ -30,35 +29,12 @@
   border-radius: 50%;
 }
 
-/* Keyframes con variables CSS */
 @keyframes mascotHop {
-  0% {
-    transform: translate(var(--p1-x), var(--p1-y)) scale(1);
-  }
-  18% {
-    transform: translate(var(--a12-x), var(--a12-y)) scale(1.08);
-  }
-  36% {
-    transform: translate(var(--p2-x), var(--p2-y)) scale(0.96);
-  }
-  56% {
-    transform: translate(var(--a23-x), var(--a23-y)) scale(1.05);
-  }
-  76% {
-    transform: translate(var(--p3-x), var(--p3-y)) scale(0.98);
-  }
-  88% {
-    transform: translate(var(--p3-x), calc(var(--p3-y) - 10px)) scale(1.02);
-  }
-  100% {
-    transform: translate(var(--p3-x), var(--p3-y)) scale(1);
-  }
-}
-
-/* Si el usuario prefiere movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-  .proceso-mascot {
-    animation: none;
-    transform: translate(var(--p3-x), var(--p3-y)) !important;
-  }
+  0%   { transform: translate(var(--p1-x), var(--p1-y)) scale(1); }
+  22%  { transform: translate(var(--a12-x), var(--a12-y)) scale(1.08); }
+  44%  { transform: translate(var(--p2-x), var(--p2-y)) scale(0.96); }
+  66%  { transform: translate(var(--a23-x), var(--a23-y)) scale(1.05); }
+  88%  { transform: translate(var(--p3-x), var(--p3-y)) scale(0.98); }
+  94%  { transform: translate(var(--p3-x), calc(var(--p3-y) - 10px)) scale(1.02); }
+  100% { transform: translate(var(--p3-x), var(--p3-y)) scale(1); }
 }

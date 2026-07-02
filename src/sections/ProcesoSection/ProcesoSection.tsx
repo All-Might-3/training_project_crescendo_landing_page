@@ -1,39 +1,64 @@
 // src/sections/ProcesoSection/ProcesoSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useRef, useEffect } from 'react';
 import { PROCESO } from '../../utils/proceso_constants';
-// Importa la imagen de la mascota (favicon o logo)
-import logo from '../../assets/images/logodorado.png';
+import logo from '../../assets/images/logodorado.png'; // Ajusta la ruta
 
 export const ProcesoSection = () => {
   const { title, subtitle, steps } = PROCESO;
 
+  // Referencia para el elemento que debe animarse (la mascota)
+  const mascotRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Agregamos la clase 'animate' al elemento con clase 'proceso-mascot'
+            entry.target.classList.add('animate');
+            observer.disconnect(); // Solo una vez
+          }
+        });
+      },
+      { threshold: 0.3 } // Ajusta si es necesario (0.2 o 0.1 para activar antes)
+    );
+
+    if (mascotRef.current) {
+      observer.observe(mascotRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-                    {/* Mascota con animación personalizada */}
-      <div 
+      {/* Contenedor de la mascota (sin ref) */}
+      <div
         className="hidden lg:block absolute inset-0 pointer-events-none z-[4]"
-        style={{
-          // Variables para las posiciones
-          '--p1-x': '0px',
-          '--p1-y': '0px',
-          '--a12-x': '200px',
-          '--a12-y': '200px',
-          '--p2-x': '480px',
-          '--p2-y': '150px',
-          '--a23-x': '800px',
-          '--a23-y': '200px',
-          '--p3-x': '1050px',  
-          '--p3-y': '200px',   
-        } as React.CSSProperties}
+        style={
+          {
+            '--p1-x': '268px',
+            '--p1-y': '200px',
+            '--a12-x': '440px',
+            '--a12-y': '100px',
+            '--p2-x': '640px',
+            '--p2-y': '200px',
+            '--a23-x': '840px',
+            '--a23-y': '100px',
+            '--p3-x': '1050px',
+            '--p3-y': '200px',
+          } as React.CSSProperties
+        }
       >
-        
-        <div className="proceso-mascot">
+        {/* La ref se asigna directamente al elemento con clase 'proceso-mascot' */}
+        <div ref={mascotRef} className="proceso-mascot">
           <img src={logo} alt="Crescendo" width="54" height="54" />
         </div>
       </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Línea ámbar decorativa */}
+        {/* Línea ámbar */}
         <div className="flex justify-center mb-8">
           <div className="w-12 h-1 bg-[var(--primary)] rounded-full" />
         </div>
@@ -66,7 +91,7 @@ export const ProcesoSection = () => {
                 group
               `}
             >
-              {/* Círculo numérico con efecto de elevación en hover de la tarjeta */}
+              {/* Número */}
               <div
                 className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center
                            bg-gradient-to-br from-[var(--primary-light)] to-[var(--primary)]
@@ -87,7 +112,6 @@ export const ProcesoSection = () => {
                 {step.description}
               </p>
 
-              {/* Enlace con efectos independientes */}
               {step.link && (
                 <a
                   href={step.link}
@@ -98,9 +122,9 @@ export const ProcesoSection = () => {
                   <span className="transition-transform duration-300 hover:-translate-x-1">
                     {step.linkText}
                   </span>
-                  <FontAwesomeIcon 
-                    icon={step.linkIcon} 
-                    className="transition-transform duration-300 hover:translate-x-1" 
+                  <FontAwesomeIcon
+                    icon={step.linkIcon}
+                    className="transition-transform duration-300 hover:translate-x-1"
                   />
                 </a>
               )}
@@ -108,9 +132,6 @@ export const ProcesoSection = () => {
           ))}
         </div>
       </div>
-
-      {/* Mascota decorativa (posicionada absolutamente) */}
-      
     </section>
   );
 };
