@@ -1,6 +1,6 @@
 // src/App.tsx
 import { HomePage } from './pages/HomePage';
-import { Footer } from './sections/Footer'; // <-- nuevo
+import { Footer } from './components/layout/Footer'; // <-- nuevo
 
 function App() {
   return (

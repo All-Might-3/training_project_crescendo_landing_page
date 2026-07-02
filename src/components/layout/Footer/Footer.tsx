@@ -1,6 +1,6 @@
 // src/sections/Footer/Footer.tsx
 import { useEffect } from 'react';
-import { FOOTER } from '../../utils/footer_constants';
+import { FOOTER } from '../../../constants/footer_constants';
 
 export const Footer = () => {
   const { map, reviews, columns, logo, copyright } = FOOTER;

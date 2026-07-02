@@ -1,5 +1,5 @@
 // src/sections/ServicesSection/ServicesSection.tsx
-import { SERVICES } from '../../utils/services_constants';
+import { SERVICES } from '../../constants/services_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../styles/sections/services.css';
 
@@ -14,6 +14,9 @@ export const ServicesSection = () => {
         {/* Encabezado global */}
         <div className="max-w-6xl mx-auto text-center mb-12">
           <h2 className="font_title">{SERVICES.title}</h2>
+          <p className="text-[var(--gray)] text-lg max-w-2xl mx-auto mt-4">
+            {SERVICES.secondary_text}
+          </p>
         </div>
 
         {/* Grid de servicios */}

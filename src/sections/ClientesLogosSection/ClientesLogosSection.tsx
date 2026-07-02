@@ -1,5 +1,5 @@
 // src/sections/ClientesLogosSection/ClientesLogosSection.tsx
-import { CLIENTES } from '../../utils/clientes_constants';
+import { CLIENTES } from '../../constants/clientes_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const ClientesLogosSection = () => {

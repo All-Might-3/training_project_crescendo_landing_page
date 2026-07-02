@@ -11,6 +11,7 @@ import {
 
 export const SERVICES = {
   title: 'Everything You Need to Grow Faster and Smarter',
+  secondary_text: 'From SEO to paid ads to AI-driven chat, each service is designed to shorten your sales cycle and increase qualified opportunities in Miami.',
   services: [
     // 1. Local SEO
     {

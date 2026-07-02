@@ -1,5 +1,8 @@
 // pages/HomePage.tsx
-import Header from '../components/layout/Header';
+// Página principal que agrupa todas las secciones del landing.
+// Cada sección está envuelta en un <section> con un id para navegación interna.
+
+import Header from '../components/layout/header/Header';
 import { FloatingSocialButtons } from '../components/ui/FloatingSocialButtons';
 import { AccessibilityButton } from '../components/ui/AccessibilityButton';
 import { HeroSection } from '../sections/HeroSection';

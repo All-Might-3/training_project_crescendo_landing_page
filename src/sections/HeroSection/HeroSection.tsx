@@ -1,7 +1,7 @@
 // sections/HeroSection/HeroSection.tsx
 
 import heroVideo from '../../assets/videos/hero-background..mp4';
-import { HERO } from '../../utils/hero_constants';
+import { HERO } from '../../constants/hero_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const HeroSection = () => {
@@ -97,58 +97,58 @@ export const HeroSection = () => {
           {/* MIDDLE BOXES */}
           
 <div className="mt-8">
-  <div className="grid grid-cols-[20%_20%_20%_30%] justify-between max-w-4xl mx-auto h-[310px]">
-    {HERO.middle_boxes.map((box, index) => {
-      if (box.type === 'icon') {
-        let variantClass = 'midle-icon-color-1';
-        if (index === 1) variantClass = 'midle-icon-color-2';
-        else if (index === 2) variantClass = 'midle-icon-color-3';
+  <div className="grid grid-cols-1 md:grid-cols-[20%_20%_20%_30%] gap-4 md:gap-0 max-w-4xl mx-auto auto-rows-fr md:h-[310px] justify-between">
+  {HERO.middle_boxes.map((box, index) => {
+    if (box.type === 'icon') {
+      let variantClass = 'midle-icon-color-1';
+      if (index === 1) variantClass = 'midle-icon-color-2';
+      else if (index === 2) variantClass = 'midle-icon-color-3';
 
-        return (
-          <div
-            key={index}
-            className="stat bg-white/10 backdrop-blur-sm border-x border-b border-white/15 rounded-2xl flex flex-col items-center p-4 h-full border-top-gradient"
-          >
-            <div className={`midle-icon-base ${variantClass}`}>
-              <FontAwesomeIcon icon={box.icon} className="scroll-animate-delay-3 scroll-animate" />
-            </div>
-            <span className="text-white text-sm font-medium text-center">{box.text}</span>
-          </div>
-        );
-      }
-
-      // type === 'text'
       return (
         <div
           key={index}
-          className="hero-value-card bg-white/10 backdrop-blur-sm border-x border-b border-white/15 rounded-2xl flex flex-col p-4 h-full justify-between border-top-gradient"
+          className="stat bg-white/10 backdrop-blur-sm border-x border-b border-white/15 rounded-2xl flex flex-col items-center p-4 h-auto md:h-full border-top-gradient"
         >
-          <strong className="text-white text-base font-semibold text-center mb-2">
-            {box.title}
-          </strong>
-          <ul className="flex flex-col gap-2 flex-1">
-            {box.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-white text-sm">
-                <svg className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <a
-            href={box.link.href}
-            className="mt-3 inline-flex items-center justify-center gap-2 text-amber-400 font-medium text-sm hover:text-amber-300 transition-colors duration-200 group"
-          >
-            {box.link.text}
-            <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
+          <div className={`midle-icon-base ${variantClass}`}>
+            <FontAwesomeIcon icon={box.icon} className="scroll-animate-delay-3 scroll-animate" />
+          </div>
+          <span className="text-white text-sm font-medium text-center">{box.text}</span>
         </div>
       );
-    })}
-  </div>
+    }
+
+    // type === 'text'
+    return (
+      <div
+        key={index}
+        className="hero-value-card bg-white/10 backdrop-blur-sm border-x border-b border-white/15 rounded-2xl flex flex-col p-4 h-auto md:h-full justify-between border-top-gradient"
+      >
+        <strong className="text-white text-base font-semibold text-center mb-2">
+          {box.title}
+        </strong>
+        <ul className="flex flex-col gap-2 flex-1">
+          {box.items.map((item, i) => (
+            <li key={i} className="flex items-start gap-2 text-white text-sm">
+              <svg className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href={box.link.href}
+          className="mt-3 inline-flex items-center justify-center gap-2 text-amber-400 font-medium text-sm hover:text-amber-300 transition-colors duration-200 group"
+        >
+          {box.link.text}
+          <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    );
+  })}
+</div>
 </div>
 
           {/* BOTTOM BOXES */}

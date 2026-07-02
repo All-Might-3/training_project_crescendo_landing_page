@@ -1,6 +1,6 @@
 // src/sections/ContactoSection/ContactoSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { CONTACTO } from '../../utils/contacto_constants';
+import { CONTACTO } from '../../constants/contacto_constants';
 
 export const ContactoSection = () => {
   const { info } = CONTACTO;

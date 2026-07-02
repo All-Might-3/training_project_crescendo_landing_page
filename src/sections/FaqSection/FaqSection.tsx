@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FAQ } from '../../utils/faq_constants';
+import { FAQ } from '../../constants/faq_constants';
 
 export const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

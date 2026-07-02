@@ -1,7 +1,7 @@
 // src/sections/ProcesoSection/ProcesoSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useEffect } from 'react';
-import { PROCESO } from '../../utils/proceso_constants';
+import { PROCESO } from '../../constants/proceso_constants';
 import logo from '../../assets/images/logodorado.png'; // Ajusta la ruta
 
 export const ProcesoSection = () => {

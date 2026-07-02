@@ -1,6 +1,6 @@
 // src/sections/ReviewsSection/ReviewsSection.tsx
 import { useEffect } from 'react';
-import { REVIEWS } from '../../utils/reviews_constants';
+import { REVIEWS } from '../../constants/reviews_constants';
 
 export const ReviewsSection = () => {
   const { title, subtitle, widgetSrc, scriptSrc } = REVIEWS;

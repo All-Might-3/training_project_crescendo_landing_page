@@ -1,4 +1,5 @@
-import { POR_QUE } from '../../utils/porque_constants';
+// sections/PorQueSection/PorQueSection.tsx
+import { POR_QUE } from '../../constants/porque_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const PorQueSection = () => {

@@ -1,6 +1,6 @@
 // src/sections/ComparativaSection/ComparativaSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { COMPARATIVA } from '../../utils/comparativa_constants';
+import { COMPARATIVA } from '../../constants/comparativa_constants';
 
 export const ComparativaSection = () => {
   const { title, subtitle, commitment, table } = COMPARATIVA;
@@ -15,8 +15,8 @@ export const ComparativaSection = () => {
         </div>
 
         {/* === Encabezado === */}
-        <div className="max-w-6xl mx-auto text-center mb-14">
-          <h2 className="text-6xl md:text-4xl font-bold text-[var(--secondary)] leading-tight">
+        <div className="max-w-4xl sm-max-w-6xl mx-auto text-center mb-14">
+          <h2 className="text-4xl sm-text-6xl md:text-6xl font-bold text-[var(--secondary)] leading-tight">
             {title}
           </h2>
           <p className="text-[var(--gray)] text-lg max-w-3xl mx-auto mt-4">

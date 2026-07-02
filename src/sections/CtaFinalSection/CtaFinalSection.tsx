@@ -1,7 +1,7 @@
 // src/sections/CtaFinalSection/CtaFinalSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { CTA } from '../../utils/cta_constants';
+import { CTA } from '../../constants/cta_constants';
 import heroVideo from '../../assets/videos/hero-background..mp4';
 
 export const CtaFinalSection = () => {
