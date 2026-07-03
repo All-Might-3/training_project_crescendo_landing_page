@@ -7,7 +7,7 @@ import { FloatingSocialButtons } from '../components/ui/FloatingSocialButtons';
 import { AccessibilityButton } from '../components/ui/AccessibilityButton';
 import { HeroSection } from '../sections/HeroSection';
 import { ServicesSection } from '../sections/ServicesSection';
-import { PorQueSection } from '../sections/Por-que-Section'; 
+import { PorQueSection } from '../sections/PorQueSection'; 
 import { ClientesLogosSection } from '../sections/ClientesLogosSection';
 import { ComparativaSection } from '../sections/ComparativaSection';
 import { ReviewsSection } from '../sections/ReviewsSection';

@@ -93,7 +93,7 @@ const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <img
-              src="/src/assets/images/logodorado.png" 
+              src="images/logodorado.png" 
               alt="Crescendo Digital Marketing"
               className="h-11 w-auto object-contain"
             />

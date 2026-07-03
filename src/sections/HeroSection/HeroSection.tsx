@@ -1,6 +1,6 @@
 // sections/HeroSection/HeroSection.tsx
 
-import heroVideo from '../../assets/videos/hero-background..mp4';
+import heroVideo from '/videos/hero-background..mp4';
 import { HERO } from '../../constants/hero_constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -160,7 +160,7 @@ export const HeroSection = () => {
         className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-3 py-2 h-[80px] transition-all duration-300 ease-out hover:bg-white/20 hover:scale-105"
       >
         
-        <div className="flex-shrink-0 w-[30%] h-full rounded-2xl overflow-hidden bg-white/5">
+        <div className="flex-shrink-0 w-[15%] sm-w-[30%] h-full rounded-2xl overflow-hidden bg-white/5">
           <img
             src={box.image}
             alt={box.title}

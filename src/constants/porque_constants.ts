@@ -35,5 +35,5 @@ export const POR_QUE = {
       description: 'Team certified by Google Partner and Meta Partner with years of experience.',
     },
   ],
-  image: '/src/assets/images/teamwork.png', // ya tienes esa imagen en assets/images
+  image: 'images/teamwork.png', 
 };

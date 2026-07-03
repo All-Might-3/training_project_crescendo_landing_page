@@ -47,7 +47,7 @@ export const FOOTER = {
     },
   ],
   logo: {
-    src: "/src/assets/images/foot-page-crescendo.png", // Ajusta la ruta según tu estructura
+    src: "images/foot-page-crescendo.png", // Ajusta la ruta según tu estructura
     alt: "Crescendo Digital Marketing",
     width: 120,
     height: 32,

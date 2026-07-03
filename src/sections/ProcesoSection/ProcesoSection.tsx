@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useEffect } from 'react';
 import { PROCESO } from '../../constants/proceso_constants';
-import logo from '../../assets/images/logodorado.png'; // Ajusta la ruta
+import logo from '/images/logodorado.png'; // Ajusta la ruta
 
 export const ProcesoSection = () => {
   const { title, subtitle, steps } = PROCESO;

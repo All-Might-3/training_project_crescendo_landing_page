@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { CTA } from '../../constants/cta_constants';
-import heroVideo from '../../assets/videos/hero-background..mp4';
+import heroVideo from '/videos/hero-background..mp4';
 
 export const CtaFinalSection = () => {
   const { title, subtitle, primaryButton, secondaryButton,  } = CTA;

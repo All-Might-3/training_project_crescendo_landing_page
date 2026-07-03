@@ -35,15 +35,15 @@ export const HERO = {
   ],
   top_boxes: [
     {
-      image: '/src/assets/images/teamwork.png', 
+      image: 'images/teamwork.png', 
       label: 'Weekly Strategy Sessions',
     },
     {
-      image: '/src/assets/images/googleads.png',
+      image: 'images/googleads.png',
       label: 'Paid Ads Optimization',
     },
     {
-      image: '/src/assets/images/localseo.png',
+      image: 'images/localseo.png',
       label: 'Local SEO Growth',
     },
   ],
@@ -64,17 +64,17 @@ export const HERO = {
 ],
   bottom_boxes: [
     {
-      image: '/src/assets/images/caso1.png',
+      image: 'images/caso1.png',
       title: 'Weekly Strategy Sessions',
       subtitle: '+42% Qualified Leads',
     },
     {
-      image: '/src/assets/images/caso3.png',
+      image: 'images/caso3.png',
       title: 'Paid Ads Optimization',
       subtitle: 'ROI +30%',
     },
     {
-      image: '/src/assets/images/caso5.png',
+      image: 'images/caso5.png',
       title: 'Local SEO Growth',
       subtitle: 'Organic Traffic Boost',
     },

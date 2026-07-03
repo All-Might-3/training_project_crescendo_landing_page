@@ -38,11 +38,11 @@ export const PorQueSection = () => {
           </div>
 
           {/* Columna derecha: imagen */}
-          <div className="flex-1 flex justify-center lg:justify-end h-600px">
+          <div className="flex-1 flex justify-center lg:justify-end h-600px overflow-hidden">
             <img
               src={POR_QUE.image}
               alt="Crescendo Digital Marketing team working on digital marketing strategies"
-              className="rounded-2xl shadow-lg w-full max-w-md lg:max-w-full h-auto object-cover"
+              className="rounded-2xl shadow-lg w-full max-w-md lg:max-w-full h-auto object-cover transition-transform duration-300 hover:scale-[1.04]"
               loading="lazy"
               decoding="async"
             />
