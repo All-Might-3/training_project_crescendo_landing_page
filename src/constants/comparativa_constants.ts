@@ -1,5 +1,5 @@
 // src/utils/comparativa_constants.ts
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 import {
   faShieldHalved,
   faChartLine,

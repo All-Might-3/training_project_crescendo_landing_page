@@ -1,5 +1,5 @@
 // src/utils/contacto_constants.ts
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 import {
   faPhone,
   faEnvelope,
